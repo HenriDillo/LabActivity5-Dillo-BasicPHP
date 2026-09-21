@@ -22,17 +22,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['email'])) {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Login</title>
-<style>
-  body{font-family:system-ui,sans-serif;display:grid;place-items:center;min-height:100vh;margin:0;background:#f4f5f7}
-  .card{background:#fff;padding:2rem;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,.08);width:320px}
-  h1{margin:0 0 1.25rem;font-size:1.25rem}
-  label{display:block;font-size:.85rem;margin-bottom:.25rem;color:#444}
-  input{width:100%;padding:.55rem;margin-bottom:.25rem;border:1px solid #ccc;border-radius:6px;box-sizing:border-box}
-  button{width:100%;padding:.6rem;margin-top:.75rem;border:0;border-radius:6px;background:#2563eb;color:#fff;font-size:.95rem;cursor:pointer}
-  .error{color:#dc2626;font-size:.8rem;min-height:1rem;margin-bottom:.5rem}
-  .success{color:#16a34a;font-size:.85rem;margin-bottom:.75rem}
-  .hint{font-size:.85rem;text-align:center;margin-top:1rem}
-</style>
 </head>
 <body>
   <form class="card" id="loginForm" novalidate>
