@@ -1,19 +1,18 @@
-<?php // register.php ?>
+<?php
+session_start();
+
+// Guest-only route
+if (isset($_SESSION['user_email'])) {
+    header('Location: index.php');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Register</title>
-<script>
-  // Guest-only guard: kick authenticated users out before paint.
-  document.documentElement.className = 'guarding';
-  if (localStorage.getItem('authUser')) {
-    location.replace('index.php');
-  } else {
-    document.documentElement.className = '';
-  }
-</script>
 </head>
 <body>
   <form class="card" id="registerForm" novalidate>
@@ -37,7 +36,6 @@ const emailInput = document.getElementById('email');
 const passwordInput = document.getElementById('password');
 const emailError = document.getElementById('emailError');
 const passwordError = document.getElementById('passwordError');
-
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function getUsers() {
@@ -75,6 +73,7 @@ form.addEventListener('submit', (e) => {
 
   if (!valid) return;
 
+  // Requirement 4: registered email saved via localStorage
   const users = getUsers();
   users.push({ email, password });
   localStorage.setItem('users', JSON.stringify(users));
